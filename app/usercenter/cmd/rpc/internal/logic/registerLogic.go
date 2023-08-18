@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"fmt"
 
 	"CatRoom/app/usercenter/cmd/rpc/internal/svc"
 	"CatRoom/app/usercenter/cmd/rpc/pb"
@@ -25,6 +26,6 @@ func NewRegisterLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Register
 
 func (l *RegisterLogic) Register(in *pb.RegisterReq) (*pb.RegisterResp, error) {
 	// todo: add your logic here and delete this line
-
+	fmt.Println("hello world!!!!!!!!!!!!!!!!!!!!!!!!!!")
 	return &pb.RegisterResp{}, nil
 }

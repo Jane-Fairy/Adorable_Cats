@@ -3,6 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
+	"path/filepath"
 
 	"CatRoom/app/usercenter/cmd/rpc/internal/config"
 	"CatRoom/app/usercenter/cmd/rpc/internal/server"
@@ -16,13 +18,23 @@ import (
 	"google.golang.org/grpc/reflection"
 )
 
-var configFile = flag.String("f", "etc/usercenter.yaml", "the config file")
+var configFile = flag.String("f", "app/usercenter/cmd/rpc/etc/usercenter.yaml", "the config file")
 
 func main() {
 	flag.Parse()
 
+	flag.Parse()
+
+	filePath, err := os.Getwd()
+	if err != nil {
+		fmt.Println("can not get current file path：", err)
+		return
+	}
+
+	configFilePath := filepath.Join(filePath, *configFile)
+
 	var c config.Config
-	conf.MustLoad(*configFile, &c)
+	conf.MustLoad(configFilePath, &c)
 	ctx := svc.NewServiceContext(c)
 
 	s := zrpc.MustNewServer(c.RpcServerConf, func(grpcServer *grpc.Server) {
