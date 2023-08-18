@@ -24,7 +24,7 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Handler: user.LoginHandler(serverCtx),
 			},
 		},
-		rest.WithPrefix("/usercenter/v1"),
+		rest.WithPrefix("/user-center/v1"),
 	)
 
 	server.AddRoutes(

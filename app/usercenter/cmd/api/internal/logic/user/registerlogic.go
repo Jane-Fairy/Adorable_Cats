@@ -4,8 +4,6 @@ import (
 	"CatRoom/app/usercenter/cmd/api/internal/svc"
 	"CatRoom/app/usercenter/cmd/api/internal/types"
 	"context"
-	"fmt"
-
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
@@ -25,8 +23,6 @@ func NewRegisterLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Register
 
 func (l *RegisterLogic) Register(req *types.RegisterReq) (resp *types.RegisterResp, err error) {
 	// todo: add your logic here and delete this line
-
-	fmt.Println("hello world")
 
 	return
 }

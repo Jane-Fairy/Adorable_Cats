@@ -15,7 +15,7 @@ import (
 //============================> usercenter v1 <============================
 //no need login
 @server(
-	prefix: usercenter/v1
+	prefix:  user-center/v1
 	group: user
 )
 
