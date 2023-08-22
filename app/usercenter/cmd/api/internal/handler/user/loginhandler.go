@@ -3,9 +3,9 @@ package user
 import (
 	"net/http"
 
-	"CatRoom/app/usercenter/cmd/api/internal/logic/user"
-	"CatRoom/app/usercenter/cmd/api/internal/svc"
-	"CatRoom/app/usercenter/cmd/api/internal/types"
+	"catroom/app/usercenter/cmd/api/internal/logic/user"
+	"catroom/app/usercenter/cmd/api/internal/svc"
+	"catroom/app/usercenter/cmd/api/internal/types"
 	"github.com/zeromicro/go-zero/rest/httpx"
 )
 

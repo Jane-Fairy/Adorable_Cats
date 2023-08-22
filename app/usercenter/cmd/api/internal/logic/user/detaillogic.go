@@ -3,8 +3,8 @@ package user
 import (
 	"context"
 
-	"CatRoom/app/usercenter/cmd/api/internal/svc"
-	"CatRoom/app/usercenter/cmd/api/internal/types"
+	"catroom/app/usercenter/cmd/api/internal/svc"
+	"catroom/app/usercenter/cmd/api/internal/types"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

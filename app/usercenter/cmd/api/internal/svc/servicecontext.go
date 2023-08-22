@@ -1,8 +1,8 @@
 package svc
 
 import (
-	"CatRoom/app/usercenter/cmd/api/internal/config"
-	"CatRoom/app/usercenter/cmd/rpc/usercenter"
+	"catroom/app/usercenter/cmd/api/internal/config"
+	"catroom/app/usercenter/cmd/rpc/usercenter"
 	"github.com/zeromicro/go-zero/zrpc"
 )
 

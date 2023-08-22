@@ -8,9 +8,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"CatRoom/app/usercenter/cmd/api/internal/config"
-	"CatRoom/app/usercenter/cmd/api/internal/handler"
-	"CatRoom/app/usercenter/cmd/api/internal/svc"
+	"catroom/app/usercenter/cmd/api/internal/config"
+	"catroom/app/usercenter/cmd/api/internal/handler"
+	"catroom/app/usercenter/cmd/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/rest"

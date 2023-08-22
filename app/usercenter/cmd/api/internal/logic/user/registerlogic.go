@@ -1,10 +1,10 @@
 package user
 
 import (
-	"CatRoom/app/usercenter/cmd/api/internal/svc"
-	"CatRoom/app/usercenter/cmd/api/internal/types"
-	"CatRoom/app/usercenter/cmd/rpc/usercenter"
-	"CatRoom/app/usercenter/model"
+	"catroom/app/usercenter/cmd/api/internal/svc"
+	"catroom/app/usercenter/cmd/api/internal/types"
+	"catroom/app/usercenter/cmd/rpc/usercenter"
+	"catroom/app/usercenter/model"
 	"context"
 	"github.com/jinzhu/copier"
 	"github.com/pkg/errors"

@@ -4,8 +4,8 @@ package handler
 import (
 	"net/http"
 
-	user "CatRoom/app/usercenter/cmd/api/internal/handler/user"
-	"CatRoom/app/usercenter/cmd/api/internal/svc"
+	user "catroom/app/usercenter/cmd/api/internal/handler/user"
+	"catroom/app/usercenter/cmd/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest"
 )

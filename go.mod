@@ -1,4 +1,4 @@
-module CatRoom
+module catroom
 
 go 1.21
 
