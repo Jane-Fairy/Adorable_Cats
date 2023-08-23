@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/zeromicro/go-zero/core/logx"
 	"os"
 	"path/filepath"
 
@@ -23,8 +24,6 @@ var configFile = flag.String("f", "app/usercenter/cmd/rpc/etc/usercenter.yaml", 
 func main() {
 	flag.Parse()
 
-	flag.Parse()
-
 	filePath, err := os.Getwd()
 	if err != nil {
 		fmt.Println("can not get current file path：", err)
@@ -36,7 +35,7 @@ func main() {
 	var c config.Config
 	conf.MustLoad(configFilePath, &c)
 	ctx := svc.NewServiceContext(c)
-
+	logx.DisableStat()
 	s := zrpc.MustNewServer(c.RpcServerConf, func(grpcServer *grpc.Server) {
 		pb.RegisterUsercenterServer(grpcServer, server.NewUsercenterServer(ctx))
 

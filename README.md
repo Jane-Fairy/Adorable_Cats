@@ -23,3 +23,9 @@ goctl rpc protoc ./pb/usercenter.proto --go_out=. --go-grpc_out=. --zrpc_out=. -
 ```cmd
 goctl model mysql ddl --src user.sql --dir ../      -------------->  template: go init template #获取原始模板
 ```
+
+
+### 11、额外控制
+```cmd
+关闭日志：logx.DisableStat() //去除控制台输出
+```

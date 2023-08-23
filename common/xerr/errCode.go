@@ -15,3 +15,4 @@ const DbUpdateAffectedZeroError uint32 = 100006
 
 // 用户模块
 const UserHasBeenRegister uint32 = 200001
+const GenerateTokenFailed uint32 = 200002
