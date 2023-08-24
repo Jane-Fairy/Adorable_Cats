@@ -35,7 +35,9 @@ func main() {
 	var c config.Config
 	conf.MustLoad(configFilePath, &c)
 	ctx := svc.NewServiceContext(c)
+
 	logx.DisableStat()
+
 	s := zrpc.MustNewServer(c.RpcServerConf, func(grpcServer *grpc.Server) {
 		pb.RegisterUsercenterServer(grpcServer, server.NewUsercenterServer(ctx))
 

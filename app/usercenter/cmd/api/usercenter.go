@@ -28,6 +28,8 @@ func main() {
 		return
 	}
 
+	x := 1 << 10
+	fmt.Println("===", x)
 	configFilePath := filepath.Join(filePath, *configFile)
 
 	var c config.Config
