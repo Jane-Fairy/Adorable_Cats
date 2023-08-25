@@ -12,6 +12,7 @@ func init() {
 	message[DbError] = "数据库操作发生错误，请检查sql后再试"
 	message[DbUpdateAffectedZeroError] = "更新数据影响行数为0"
 	message[UserHasBeenRegister] = "用户已经存在"
+	message[PasswordError] = "密码错误"
 }
 
 func MapErrMsg(errcode uint32) string {

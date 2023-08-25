@@ -12,9 +12,8 @@ import (
 	"user/user.api"
 )
 
-//============================> usercenter v1 <============================
-//no need login
 @server(
+	timeout: 10s
 	prefix:  user-center/v1
 	group: user
 )

@@ -39,6 +39,8 @@ func (l *RegisterLogic) Register(req *types.RegisterReq) (resp *types.RegisterRe
 	}
 
 	var response types.RegisterResp
-	_ = copier.Copy(&resp, registerResp)
+
+	_ = copier.Copy(&response, registerResp)
+
 	return &response, nil
 }

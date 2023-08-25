@@ -3,6 +3,7 @@ package handler
 
 import (
 	"net/http"
+	"time"
 
 	user "catroom/app/usercenter/cmd/api/internal/handler/user"
 	"catroom/app/usercenter/cmd/api/internal/svc"
@@ -25,6 +26,7 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 			},
 		},
 		rest.WithPrefix("/user-center/v1"),
+		rest.WithTimeout(100000000*time.Millisecond),
 	)
 
 	server.AddRoutes(

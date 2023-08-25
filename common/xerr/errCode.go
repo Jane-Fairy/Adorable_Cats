@@ -13,8 +13,10 @@ const TokenGenerateError uint32 = 100004
 const DbError uint32 = 100005
 const DbUpdateAffectedZeroError uint32 = 100006
 const UserExistMobile uint32 = 100007
+const PasswordError uint32 = 100008
 
 // 用户模块
 const UserHasBeenRegister uint32 = 200001
 const GenerateTokenFailed uint32 = 200002
 const ErrGenerateTokenError uint32 = 200003
+const UserNotExitsError uint32 = 200004
