@@ -2,6 +2,7 @@ Name: usercenter
 Host: 0.0.0.0
 Port: 8081
 
+
 #jwtAuth
 JwtAuth:
   AccessSecret: AnHhdzHc1VjEGw535DQ7jYlWktn1TUwjnfdqm7Y6c7ebciq3wuM3ECz8VA6HL0FY6uqbcIEsfb9VVUGZw9PFpKjB7ipBO6STwyiM
@@ -12,3 +13,4 @@ UsercenterRpcConf:
   Endpoints:
     - 127.0.0.1:9081
   NonBlock: true
+

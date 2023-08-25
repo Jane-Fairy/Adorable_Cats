@@ -9,8 +9,9 @@ func init() {
 	message[RequestParamError] = "参数错误"
 	message[TokenExpireError] = "token失效，请重新登陆"
 	message[TokenGenerateError] = "生成token失败"
-	message[DbError] = "数据库繁忙,请稍后再试"
+	message[DbError] = "数据库操作发生错误，请检查sql后再试"
 	message[DbUpdateAffectedZeroError] = "更新数据影响行数为0"
+	message[UserHasBeenRegister] = "用户已经存在"
 }
 
 func MapErrMsg(errcode uint32) string {

@@ -137,10 +137,13 @@ func (m *defaultUserModel) Insert(ctx context.Context, session sqlx.Session, dat
 	looklookUsercenterUserMobileKey := fmt.Sprintf("%s%v", cacheUserMobilePrefix, data.Mobile)
 	return m.ExecCtx(ctx, func(ctx context.Context, conn sqlx.SqlConn) (result sql.Result, err error) {
 		query := fmt.Sprintf("insert into %s (%s) values (?, ?, ?, ?, ?, ?, ?, ?, ?)", m.table, userRowsExpectAutoSet)
+		fmt.Println(query)
 		if session != nil {
-			return session.ExecCtx(ctx, query, data.DeleteTime, data.DelState, data.Version, data.Mobile, data.Password, data.Nickname, data.Gender, data.Avatar, data.Info)
+			//insert into `user` (`delete_time`,`del_state`,`version`,`mobile`,`password`,`nickname`,`gender`,`avatar`,`info`) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+
+			return session.ExecCtx(ctx, query, time.Now(), data.DelState, data.Version, data.Mobile, data.Password, data.Nickname, data.Gender, data.Avatar, data.Info)
 		}
-		return conn.ExecCtx(ctx, query, data.DeleteTime, data.DelState, data.Version, data.Mobile, data.Password, data.Nickname, data.Gender, data.Avatar, data.Info)
+		return conn.ExecCtx(ctx, query, time.Now(), data.DelState, data.Version, data.Mobile, data.Password, data.Nickname, data.Gender, data.Avatar, data.Info)
 	}, looklookUsercenterUserIdKey, looklookUsercenterUserMobileKey)
 }
 func (m *defaultUserModel) Update(ctx context.Context, newData *User) error {

@@ -14,3 +14,7 @@ DB:
 Cache:
   - Host: 3.106.113.82:6379
   #  Pass: G62m50oigInC30sf
+
+JwtAuth:
+  AccessSecret: AnHhdzHc1VjEGw535DQ7jYlWktn1TUwjnfdqm7Y6c7ebciq3wuM3ECz8VA6HL0FY6uqbcIEsfb9VVUGZw9PFpKjB7ipBO6STwyiM
+  AccessExpire: 31536000

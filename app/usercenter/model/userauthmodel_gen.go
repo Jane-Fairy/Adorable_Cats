@@ -148,7 +148,7 @@ func (m *defaultUserAuthModel) Insert(ctx context.Context, data *UserAuth) (sql.
 	userAuthUserIdAuthTypeKey := fmt.Sprintf("%s%v:%v", cacheUserAuthUserIdAuthTypePrefix, data.UserId, data.AuthType)
 	ret, err := m.ExecCtx(ctx, func(ctx context.Context, conn sqlx.SqlConn) (result sql.Result, err error) {
 		query := fmt.Sprintf("insert into %s (%s) values (?, ?, ?, ?, ?, ?)", m.table, userAuthRowsExpectAutoSet)
-		return conn.ExecCtx(ctx, query, data.DeleteTime, data.DelState, data.Version, data.UserId, data.AuthKey, data.AuthType)
+		return conn.ExecCtx(ctx, query, time.Now(), data.DelState, data.Version, data.UserId, data.AuthKey, data.AuthType)
 	}, userAuthAuthTypeAuthKeyKey, userAuthIdKey, userAuthUserIdAuthTypeKey)
 	return ret, err
 }

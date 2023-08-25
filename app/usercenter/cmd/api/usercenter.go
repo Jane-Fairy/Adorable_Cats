@@ -1,6 +1,8 @@
 package main
 
 import (
+	_ "net/http/pprof"
+
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -28,8 +30,6 @@ func main() {
 		return
 	}
 
-	x := 1 << 10
-	fmt.Println("===", x)
 	configFilePath := filepath.Join(filePath, *configFile)
 
 	var c config.Config
@@ -45,5 +45,8 @@ func main() {
 	handler.RegisterHandlers(server, ctx)
 	logx.DisableStat()
 	fmt.Printf("Starting server at %s:%d...\n", c.Host, c.Port)
+
+	//fmt.Println(http.ListenAndServe(":6060", nil)) //性能分析
+
 	server.Start()
 }

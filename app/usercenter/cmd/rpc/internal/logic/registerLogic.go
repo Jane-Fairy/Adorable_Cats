@@ -63,9 +63,11 @@ func (l *RegisterLogic) Register(in *pb.RegisterReq) (*pb.RegisterResp, error) {
 		userAuth.AuthKey = in.AuthKey
 		userAuth.AuthType = in.AuthType
 
-		if _, err := l.svcCtx.UserAuthModel.Insert(ctx, userAuth); err != nil {
+		_, err = l.svcCtx.UserAuthModel.Insert(ctx, userAuth)
+		if err != nil {
 			return errors.Wrapf(xerr.NewErrCode(xerr.DbError), "Register db user_auth Insert err:%v,userAuth:%v", err, userAuth)
 		}
+
 		return nil
 	}); err != nil {
 		return nil, err
