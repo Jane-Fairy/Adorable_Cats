@@ -6,13 +6,20 @@ import (
 )
 
 type Config struct {
-	DB struct {
-		DataSource string
-	}
-	JwtAuth struct {
-		AccessSecret string
-		AccessExpire int64
-	}
-	Cache cache.CacheConf
+	DB      DateGroup
+	JwtAuth Jwt
+	Cache   cache.CacheConf
 	zrpc.RpcServerConf
+}
+
+type Jwt struct {
+	AccessSecret string
+	AccessExpire int64
+}
+
+type DateGroup struct {
+	DataSource string
+}
+
+type Gorm struct {
 }

@@ -7,7 +7,6 @@ Etcd:
   - 127.0.0.1:2379
   Key: usercenter.rpc
 
-
 DB:
   DataSource: root:root@tcp(localhost:3306)/catroom?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
 
