@@ -19,6 +19,7 @@ goctl api go --api ../catroom/app/usercenter/cmd/api/desc/usercenter.api  --dir 
 生成proto代码go-ctl示例
 
 ```cmd
+goctl rpc protoc pb/usercenter.proto --go_out=. --go-grpc_out=. --zrpc_out=. -style goZero //new
 goctl rpc protoc ./pb/usercenter.proto --go_out=. --go-grpc_out=. --zrpc_out=. -style goZero     
 ```
 

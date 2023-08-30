@@ -51,3 +51,23 @@ func (s *UsercenterServer) GenerateToken(ctx context.Context, in *pb.GenerateTok
 	l := logic.NewGenerateTokenLogic(ctx, s.svcCtx)
 	return l.GenerateToken(in)
 }
+
+func (s *UsercenterServer) PetInsert(ctx context.Context, in *pb.PetReq) (*pb.PetResp, error) {
+	l := logic.NewPetInsertLogic(ctx, s.svcCtx)
+	return l.PetInsert(in)
+}
+
+func (s *UsercenterServer) PetDelete(ctx context.Context, in *pb.PetReq) (*pb.StatusInfo, error) {
+	l := logic.NewPetDeleteLogic(ctx, s.svcCtx)
+	return l.PetDelete(in)
+}
+
+func (s *UsercenterServer) FindPetOne(ctx context.Context, in *pb.PetReq) (*pb.PetResp, error) {
+	l := logic.NewFindPetOneLogic(ctx, s.svcCtx)
+	return l.FindPetOne(in)
+}
+
+func (s *UsercenterServer) PetEdit(ctx context.Context, in *pb.PetReq) (*pb.StatusInfo, error) {
+	l := logic.NewPetEditLogic(ctx, s.svcCtx)
+	return l.PetEdit(in)
+}

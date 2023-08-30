@@ -23,8 +23,11 @@ type (
 	GetUserInfoResp          = pb.GetUserInfoResp
 	LoginReq                 = pb.LoginReq
 	LoginResp                = pb.LoginResp
+	PetReq                   = pb.PetReq
+	PetResp                  = pb.PetResp
 	RegisterReq              = pb.RegisterReq
 	RegisterResp             = pb.RegisterResp
+	StatusInfo               = pb.StatusInfo
 	User                     = pb.User
 	UserAuth                 = pb.UserAuth
 
@@ -35,6 +38,10 @@ type (
 		GetUserAuthByAuthKey(ctx context.Context, in *GetUserAuthByAuthKeyReq, opts ...grpc.CallOption) (*GetUserAuthByAuthKeyResp, error)
 		GetUserAuthByUserId(ctx context.Context, in *GetUserAuthByUserIdReq, opts ...grpc.CallOption) (*GetUserAuthyUserIdResp, error)
 		GenerateToken(ctx context.Context, in *GenerateTokenReq, opts ...grpc.CallOption) (*GenerateTokenResp, error)
+		PetInsert(ctx context.Context, in *PetReq, opts ...grpc.CallOption) (*PetResp, error)
+		PetDelete(ctx context.Context, in *PetReq, opts ...grpc.CallOption) (*StatusInfo, error)
+		FindPetOne(ctx context.Context, in *PetReq, opts ...grpc.CallOption) (*PetResp, error)
+		PetEdit(ctx context.Context, in *PetReq, opts ...grpc.CallOption) (*StatusInfo, error)
 	}
 
 	defaultUsercenter struct {
@@ -76,4 +83,24 @@ func (m *defaultUsercenter) GetUserAuthByUserId(ctx context.Context, in *GetUser
 func (m *defaultUsercenter) GenerateToken(ctx context.Context, in *GenerateTokenReq, opts ...grpc.CallOption) (*GenerateTokenResp, error) {
 	client := pb.NewUsercenterClient(m.cli.Conn())
 	return client.GenerateToken(ctx, in, opts...)
+}
+
+func (m *defaultUsercenter) PetInsert(ctx context.Context, in *PetReq, opts ...grpc.CallOption) (*PetResp, error) {
+	client := pb.NewUsercenterClient(m.cli.Conn())
+	return client.PetInsert(ctx, in, opts...)
+}
+
+func (m *defaultUsercenter) PetDelete(ctx context.Context, in *PetReq, opts ...grpc.CallOption) (*StatusInfo, error) {
+	client := pb.NewUsercenterClient(m.cli.Conn())
+	return client.PetDelete(ctx, in, opts...)
+}
+
+func (m *defaultUsercenter) FindPetOne(ctx context.Context, in *PetReq, opts ...grpc.CallOption) (*PetResp, error) {
+	client := pb.NewUsercenterClient(m.cli.Conn())
+	return client.FindPetOne(ctx, in, opts...)
+}
+
+func (m *defaultUsercenter) PetEdit(ctx context.Context, in *PetReq, opts ...grpc.CallOption) (*StatusInfo, error) {
+	client := pb.NewUsercenterClient(m.cli.Conn())
+	return client.PetEdit(ctx, in, opts...)
 }
