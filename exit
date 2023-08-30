@@ -1,0 +1,163 @@
+[33mcommit d15f9e7904552c4437fdf0f7b89982168afc4366[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m)[m
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Wed Aug 30 14:45:32 2023 +0800
+
+    rpc pet info.
+
+[33mcommit 68d2add8f4b55f33a1cde87960597427051ea443[m[33m ([m[1;31morigin/dev[m[33m)[m
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Wed Aug 30 11:26:20 2023 +0800
+
+    pet base insert .
+
+[33mcommit a18f187d6e61940080a6e7fa8b41bbb91fd18c84[m
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Wed Aug 30 11:25:02 2023 +0800
+
+    pet base insert .
+
+[33mcommit c2ee3c4d06329326d0e7a997cadb65c9c2c5a926[m
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Wed Aug 30 11:14:06 2023 +0800
+
+    update .
+
+[33mcommit 89809f95d3adc3377fe7e90398cd632046f1245b[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Fri Aug 25 17:00:14 2023 +0800
+
+    login .
+
+[33mcommit 84f400e155e5d53efb0a29c3a96250eef2c1806e[m
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Fri Aug 25 16:18:20 2023 +0800
+
+    register user auth model.
+
+[33mcommit d251d0cff3f71b1ff7f95758c2b49f313310c0b6[m
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Thu Aug 24 18:25:25 2023 +0800
+
+    fix bug
+
+[33mcommit 7a183ae683ce540701cb16339a64ad142032c79f[m
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Wed Aug 23 14:24:58 2023 +0800
+
+    reverting code from historical branch.
+
+[33mcommit 789a06d0296ea9ba54df8e9d32d5a3ed367972fd[m
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Wed Aug 23 13:21:42 2023 +0800
+
+    reverting code from historical branch.
+
+[33mcommit 696ee68d702337169af93a8558bc3eb80ece17c1[m
+Merge: 8a726f7 26ef6c8
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Wed Aug 23 10:20:51 2023 +0800
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 8a726f7cbdc64029c995bb8beae85f919c111c21[m
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Wed Aug 23 10:10:27 2023 +0800
+
+    reverting code from historical branch.
+
+[33mcommit 26ef6c80446f1ae52a28d1b0988fb8a677441407[m
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Tue Aug 22 18:17:02 2023 +0800
+
+    optimizing goctl , include template.
+
+[33mcommit bc975c0ff43d2ba8d15280a4b08a434e9a26eebf[m
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Tue Aug 22 17:42:11 2023 +0800
+
+    optimizing goctl , include template.
+
+[33mcommit 40f3cc1e1dc9c65ecfc0e34d2516434c065b4615[m
+Merge: 70d98e3 a3c72d0
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Tue Aug 22 16:01:20 2023 +0800
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 70d98e3294fda9d07c24374c7b063c43da90a3e1[m
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Tue Aug 22 16:00:37 2023 +0800
+
+    optimizing goctl , include template.
+
+[33mcommit a3c72d0ef42b0088bc2783a1738662cc3a2eb945[m
+Author: Adulatian <66467783+Jane-Fairy@users.noreply.github.com>
+Date:   Tue Aug 22 15:48:25 2023 +0800
+
+    Update README.md
+
+[33mcommit b9197e3e0af73889f92773e3ec305cb60ce9cd22[m
+Author: Adulatian <jin.tian984@outlook.com>
+Date:   Tue Aug 22 15:26:14 2023 +0800
+
+    optimizing goctl , include template.
+
+[33mcommit 180887459b473635fdafa1024257565b4a922ac4[m
+Author: admin <jin.tian984@outlook.com>
+Date:   Fri Aug 18 18:18:02 2023 +0800
+
+    http request for register.
+
+[33mcommit 7a17058b0b0b218bbb99f2b8e034d6ae601e0957[m
+Author: admin <jin.tian984@outlook.com>
+Date:   Fri Aug 18 17:38:15 2023 +0800
+
+    first try , generate http service with go-ctl.
+
+[33mcommit d85e7a07414688971beedbf1a9c5c712edb9529b[m
+Author: admin <jin.tian984@outlook.com>
+Date:   Fri Aug 18 17:37:51 2023 +0800
+
+    first try , generate http service with go-ctl.
+
+[33mcommit 98366196d06ebec89ba228dcb00835847637bd42[m
+Author: admin <jin.tian984@outlook.com>
+Date:   Fri Aug 18 17:32:57 2023 +0800
+
+    first try , generate http service with go-ctl.
+
+[33mcommit 35095dc717bfe313df8c00f122a44092652ee196[m
+Author: admin <jin.tian984@outlook.com>
+Date:   Fri Aug 18 16:28:21 2023 +0800
+
+    first try , generate http service with go-ctl.
+
+[33mcommit f1c7469df7677a2e5cc25a8ef01963e2f6a8ea07[m
+Author: admin <jin.tian984@outlook.com>
+Date:   Fri Aug 18 16:24:59 2023 +0800
+
+    first try , generate http service with go-ctl.
+
+[33mcommit 52a23bf5819a60979ece753d1fc5d358b30d5758[m
+Author: admin <jin.tian984@outlook.com>
+Date:   Fri Aug 18 16:02:05 2023 +0800
+
+    first try , generate http service with go-ctl.
+
+[33mcommit 6a2a2316846bdd37e1dcde16d6a0b3b6b93f7916[m
+Author: admin <jin.tian984@outlook.com>
+Date:   Tue Aug 15 12:00:28 2023 +0800
+
+    Cat room login logic.
+
+[33mcommit 6725514713eed6ac527982039644ec87beee1847[m
+Author: admin <jin.tian984@outlook.com>
+Date:   Tue Aug 15 11:29:41 2023 +0800
+
+    Cat room login logic.
+
+[33mcommit ff0603aaefb4079bd2f401678c3cf7df2ca9dce4[m
+Author: admin <jin.tian984@outlook.com>
+Date:   Tue Aug 15 09:38:28 2023 +0800
+
+    FIRST COMMIT.
