@@ -49,8 +49,13 @@ service usercenter {
 
 }
 
+@server(
+	prefix: cat-center/v1
+	group: pet
+	jwt: JwtAuth
+)
 
-service pet {
+service usercenter {
 
 	@doc "insert pet"
 	@handler petInsert

@@ -10,6 +10,10 @@
 
 ```cmd
 goctl api go --api ./app/usercenter/cmd/api/desc/usercenter.api  --dir ./app/usercenter/cmd/api -style gozero
+
+#根目录
+goctl api go --api ../catroom/app/usercenter/cmd/api/desc/usercenter.api  --dir ../catroom/app/usercenter/cmd/api -style gozero 
+
 ```
 
 生成proto代码go-ctl示例

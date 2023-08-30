@@ -3,7 +3,10 @@ package handler
 
 import (
 	"net/http"
+	"time"
 
+	pet "catroom/app/usercenter/cmd/api/internal/handler/pet"
+	user "catroom/app/usercenter/cmd/api/internal/handler/user"
 	"catroom/app/usercenter/cmd/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest"
@@ -14,24 +17,60 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 		[]rest.Route{
 			{
 				Method:  http.MethodPost,
+				Path:    "/user/register",
+				Handler: user.RegisterHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/user/login",
+				Handler: user.LoginHandler(serverCtx),
+			},
+		},
+		rest.WithPrefix("/user-center/v1"),
+		rest.WithTimeout(10000*time.Millisecond),
+	)
+
+	server.AddRoutes(
+		[]rest.Route{
+			{
+				Method:  http.MethodPost,
+				Path:    "/user/detail",
+				Handler: user.DetailHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/user/wxMiniAuth",
+				Handler: user.WxMiniAuthHandler(serverCtx),
+			},
+		},
+		rest.WithJwt(serverCtx.Config.JwtAuth.AccessSecret),
+		rest.WithPrefix("/user-center/v1"),
+	)
+
+	server.AddRoutes(
+		[]rest.Route{
+			{
+				Method:  http.MethodPost,
 				Path:    "/pet/insert",
-				Handler: petInsertHandler(serverCtx),
+				Handler: pet.PetInsertHandler(serverCtx),
 			},
 			{
 				Method:  http.MethodPost,
 				Path:    "/user/delete",
-				Handler: petDeleteHandler(serverCtx),
+				Handler: pet.PetDeleteHandler(serverCtx),
 			},
 			{
 				Method:  http.MethodPost,
 				Path:    "/pet/find",
-				Handler: findPetOneHandler(serverCtx),
+				Handler: pet.FindPetOneHandler(serverCtx),
 			},
 			{
 				Method:  http.MethodPost,
 				Path:    "/pet/edit",
-				Handler: petEditHandler(serverCtx),
+				Handler: pet.PetEditHandler(serverCtx),
 			},
 		},
+		rest.WithJwt(serverCtx.Config.JwtAuth.AccessSecret),
+		rest.WithPrefix("/cat-center/v1"),
 	)
 }
