@@ -26,6 +26,7 @@ This contact may help to maintain order within a group,
 and stroking or touching are part of the courtship ritual in most species.
 The area around the blowhole is also particularly sensitive and captive animals often object strongly to being touched there.
 
+rubbed: 擦过
 responsiveness: n. 反应能力
 freelancing： n.自由职业者
 calves:  n.小牛
@@ -58,6 +59,7 @@ the accuracy with which dolphins leap high to take small fish out of a trainer�
 fairly：相当
 preliminary：初步的
 accuracy： 准确性
+
 
 
 Such variation can no doubt be explained with reference to the habitats in which individual species have developed.
@@ -94,5 +96,64 @@ monotonous： 单调
 
 
 
+acoustic
+[əˈkustɪk]
+adj. 声音的
+
+airborne
+['ɛr'bɔrn]
+adj. 空运的
+
+align
+[əˈlaɪn]
+vt. 使结盟
+
+baleen
+[bə'li:n]
+n. 鲸须
+
+blowhole
+[ˈbloʊˌhoʊl]
+n. 喷水孔
+
+bottlenose
+['bɔtlnəuz]
+n. 宽吻海豚
+
+bowhead
+['bəuhed]
+n. 一种头口特大的鲸鱼
+
+captive
+[ˈkæptɪv]
+adj. 被俘虏的
+
+cetacean
+[səˈteɪʃən]
+adj. 鲸类的
+
+courtship
+[ˈkɔrtˌʃɪp]
+n. 求爱
+
+dolphin
+[ˈdɑlfɪn]
+n. 海豚
+
+echolocation
+[ˈɛkoʊloʊˌkeɪʃən]
+n. 回波定位
+
+experimental
+[ɛk'spɛrɪ'mɛntəl]
+adj. 实验的
+
+forage
+['fɔrɪdʒ]
+n. 饲料
+
+humpback
+[ˈhʌmpˌbæk]
+n. 驼背
 
 **/

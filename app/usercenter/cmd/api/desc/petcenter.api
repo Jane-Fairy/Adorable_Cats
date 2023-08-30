@@ -1,0 +1,33 @@
+syntax = "v1"
+
+info(
+	title: "Consumer Center"
+	desc: "Consumer Center"
+	author: "Adulatian"
+	email: "jin.tian984@outlook.com"
+	version: "v1"
+)
+
+import (
+	"user/pet.api"
+)
+
+service pet {
+
+	@doc "insert pet"
+	@handler petInsert
+	post /pet/insert (PetReq) returns (PetResp)
+
+	@doc "delete pet"
+	@handler petDelete
+	post /user/delete (PetReq) returns (int)
+
+	@doc "findOne pet"
+	@handler findPetOne
+	post /pet/find (PetReq) returns (PetResp)
+
+	@doc "edit pet"
+	@handler petEdit
+	post /pet/edit (PetReq) returns (int)
+
+}

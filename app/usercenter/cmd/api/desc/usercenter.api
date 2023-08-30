@@ -10,6 +10,7 @@ info(
 
 import (
 	"user/user.api"
+	"user/pet.api"
 )
 
 @server(
@@ -45,5 +46,26 @@ service usercenter {
 	@doc "wechat mini auth"
 	@handler wxMiniAuth
 	post /user/wxMiniAuth (WXMiniAuthReq) returns (WXMiniAuthResp)
+
+}
+
+
+service pet {
+
+	@doc "insert pet"
+	@handler petInsert
+	post /pet/insert (PetReq) returns (PetResp)
+
+	@doc "delete pet"
+	@handler petDelete
+	post /user/delete (PetReq) returns (int)
+
+	@doc "findOne pet"
+	@handler findPetOne
+	post /pet/find (PetReq) returns (PetResp)
+
+	@doc "edit pet"
+	@handler petEdit
+	post /pet/edit (PetReq) returns (int)
 
 }

@@ -24,8 +24,18 @@ goctl rpc protoc ./pb/usercenter.proto --go_out=. --go-grpc_out=. --zrpc_out=. -
 goctl model mysql ddl --src user.sql --dir ../      -------------->  template: go init template #获取原始模板
 ```
 
+连接数据库生成model
+
+```cmd
+goctl model mysql datasource --ignore-columns="delete_at" -url="${DB_USER}:${$DB_PASS}@tcp(${DB_HOST}:${DB_PORT})/${DB_NAME}" -table="${DB_TABLE}" . -style goZero -home ../../../common/goctl/1.5.0
+
+goctl model mysql datasource  -url="root:root@tcp(localhost:3306)/catroom" -table="pet_info" . -style goZero -home C:\Users\TJ\.goctl\1.5.0 --dir ../catroom/app/usercenter/model
+```
+
+
 
 ### 11、额外控制
+
 ```cmd
 关闭日志：logx.DisableStat() //去除控制台输出
 ```

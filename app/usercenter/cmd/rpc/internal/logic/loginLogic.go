@@ -34,6 +34,7 @@ func (l *LoginLogic) Login(in *pb.LoginReq) (*pb.LoginResp, error) {
 	var err error
 	switch in.AuthType {
 	case model.UserAuthTypeSystem:
+
 		userId, err = l.loginByMobile(in.AuthKey, in.Password)
 	default:
 		return nil, xerr.NewErrCode(xerr.ServerCommonError)

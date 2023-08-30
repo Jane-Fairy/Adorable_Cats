@@ -3,50 +3,43 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/zeromicro/go-zero/core/logx"
-	"os"
-	"path/filepath"
-
-	"catroom/app/usercenter/cmd/rpc/internal/config"
-	"catroom/app/usercenter/cmd/rpc/internal/server"
-	"catroom/app/usercenter/cmd/rpc/internal/svc"
-	"catroom/app/usercenter/cmd/rpc/pb"
-
-	"github.com/zeromicro/go-zero/core/conf"
-	"github.com/zeromicro/go-zero/core/service"
-	"github.com/zeromicro/go-zero/zrpc"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/reflection"
+	"log"
+	"time"
 )
 
 var configFile = flag.String("f", "app/usercenter/cmd/rpc/etc/usercenter.yaml", "the config file")
 
 func main() {
-	flag.Parse()
+	// 构建一个通道
+	ch := make(chan int)
 
-	filePath, err := os.Getwd()
-	if err != nil {
-		fmt.Println("can not get current file path：", err)
-		return
-	}
+	// 开启一个并发匿名函数
+	go func() {
+		fmt.Println("start goroutine")
+		// 通过通道通知main的goroutine
+		ch <- 02132
+		fmt.Println("exit goroutine")
+	}()
+	fmt.Println("wait goroutine")
+	// 等待匿名goroutine
 
-	configFilePath := filepath.Join(filePath, *configFile)
+	fmt.Print("all done")
+}
 
-	var c config.Config
-	conf.MustLoad(configFilePath, &c)
-	ctx := svc.NewServiceContext(c)
+var lg chan string
 
-	logx.DisableStat()
+func BroadcastOne(roleId string) {
+	timeout := time.NewTimer(10 * time.Second)
+	for {
+		select {
+		case lg <- roleId:
+			log.Print("Received: ", <-lg)
+			time.Sleep(2 * time.Second)
+		case <-timeout.C:
+			log.Print("Timeout")
+			// 重置定时器
 
-	s := zrpc.MustNewServer(c.RpcServerConf, func(grpcServer *grpc.Server) {
-		pb.RegisterUsercenterServer(grpcServer, server.NewUsercenterServer(ctx))
-
-		if c.Mode == service.DevMode || c.Mode == service.TestMode {
-			reflection.Register(grpcServer)
+			timeout.Reset(10 * time.Second)
 		}
-	})
-	defer s.Stop()
-
-	fmt.Printf("Starting rpc server at %s...\n", c.ListenOn)
-	s.Start()
+	}
 }
