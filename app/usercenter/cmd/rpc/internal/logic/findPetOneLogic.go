@@ -1,7 +1,11 @@
 package logic
 
 import (
+	"catroom/app/usercenter/model"
+	"catroom/common/xerr"
 	"context"
+	"github.com/jinzhu/copier"
+	"github.com/pkg/errors"
 
 	"catroom/app/usercenter/cmd/rpc/internal/svc"
 	"catroom/app/usercenter/cmd/rpc/pb"
@@ -25,6 +29,12 @@ func NewFindPetOneLogic(ctx context.Context, svcCtx *svc.ServiceContext) *FindPe
 
 func (l *FindPetOneLogic) FindPetOne(in *pb.PetReq) (*pb.PetResp, error) {
 	// todo: add your logic here and delete this line
+	petInfo, err := l.svcCtx.PetModel.FindOne(l.ctx, in.Id)
 
-	return &pb.PetResp{}, nil
+	if err != nil && err != model.ErrNotFound {
+		return nil, errors.Wrapf(xerr.NewErrCode(xerr.DbError), "mobile:%s,err:%v", in.Id, err)
+	}
+	petResp := new(pb.PetResp)
+	_ = copier.Copy(&petResp, petInfo)
+	return petResp, nil
 }

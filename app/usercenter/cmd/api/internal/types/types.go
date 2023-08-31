@@ -56,14 +56,14 @@ type PetInfo struct {
 	Name         string `json:"name"`
 	Type         string `json:"type"`
 	Breed        string `json:"breed"`
-	DateOfBirth  string `json:"date_of_birth"`
+	DateOfBirth  int64  `json:"date_of_birth,optional"`
 	Gender       string `json:"gender"`
 	OwnerName    string `json:"owner_name"`
 	OwnerContact string `json:"owner_contact"`
 	Note         string `json:"note"`
-	CreateTime   string `json:"create_string"`
-	UpdateTime   string `json:"update_string"`
-	DeleteTime   string `json:"delete_string"`
+	CreateTime   int64  `json:"create_string,optional"`
+	UpdateTime   int64  `json:"update_string,optional"`
+	DeleteTime   int64  `json:"delete_string,optional"`
 	DelState     int64  `json:"del_state"`
 }
 
@@ -72,7 +72,7 @@ type PetReq struct {
 	Name         string `json:"name"`
 	Type         string `json:"type"`
 	Breed        string `json:"breed"`
-	DateOfBirth  string `json:"date_of_birth"`
+	DateOfBirth  int64  `json:"date_of_birth"`
 	Gender       string `json:"gender"`
 	OwnerName    string `json:"owner_name"`
 	OwnerContact string `json:"owner_contact"`
@@ -84,14 +84,14 @@ type PetResp struct {
 	Name         string `json:"name"`
 	Type         string `json:"type"`
 	Breed        string `json:"breed"`
-	DateOfBirth  string `json:"date_of_birth"`
+	DateOfBirth  int64  `json:"date_of_birth"`
 	Gender       string `json:"gender"`
 	OwnerName    string `json:"owner_name"`
 	OwnerContact string `json:"owner_contact"`
 	Note         string `json:"note"`
-	CreateTime   string `json:"create_string"`
-	UpdateTime   string `json:"update_string"`
-	DeleteTime   string `json:"delete_string"`
+	CreateTime   int64  `json:"create_string,optional"`
+	UpdateTime   int64  `json:"update_string,optional"`
+	DeleteTime   int64  `json:"delete_string,optional"`
 	DelState     int64  `json:"del_state"`
 	Version      int64  `json:"version"`
 }

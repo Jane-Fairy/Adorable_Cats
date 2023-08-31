@@ -7,8 +7,8 @@ import (
 )
 
 type ServiceContext struct {
-	Config config.Config
-
+	Config        config.Config
+	PetModel      model.PetInfoModel
 	UserModel     model.UserModel
 	UserAuthModel model.UserAuthModel
 }
@@ -20,5 +20,6 @@ func NewServiceContext(c config.Config) *ServiceContext {
 		Config:        c,
 		UserModel:     model.NewUserModel(sqlConn, c.Cache),
 		UserAuthModel: model.NewUserAuthModel(sqlConn, c.Cache),
+		PetModel:      model.NewPetInfoModel(sqlConn),
 	}
 }
