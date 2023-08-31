@@ -70,7 +70,7 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Handler: pet.PetEditHandler(serverCtx),
 			},
 		},
-		//rest.WithJwt(serverCtx.Config.JwtAuth.AccessSecret),
+	//	rest.WithJwt(serverCtx.Config.JwtAuth.AccessSecret),
 		rest.WithPrefix("/cat-center/v1"),
 	)
 }

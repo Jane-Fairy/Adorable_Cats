@@ -36,5 +36,10 @@ func (l *FindPetOneLogic) FindPetOne(in *pb.PetReq) (*pb.PetResp, error) {
 	}
 	petResp := new(pb.PetResp)
 	_ = copier.Copy(&petResp, petInfo)
+
+	petResp.CreateString = petInfo.CreateTime.String()
+	petResp.UpdateString = petInfo.UpdateTime.String()
+	petResp.DeleteString = petInfo.DeleteTime.String()
+	petResp.DateOfBirth = petInfo.DateOfBirth.Time.String()
 	return petResp, nil
 }

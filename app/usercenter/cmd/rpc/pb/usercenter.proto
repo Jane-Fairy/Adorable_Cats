@@ -4,6 +4,7 @@ option go_package = "./pb";
 
 package pb;
 
+import "google/protobuf/timestamp.proto";
 
 //model
 message User {
@@ -97,14 +98,14 @@ message PetResp {
   string name = 2;
   string type = 3;
   string breed = 4;
-  string date_of_birth = 5;
+  string  date_of_birth = 5;
   string gender = 6;
   string owner_name = 7;
   string owner_contact = 8;
   string note = 9;
-  string create_string = 10;
-  string update_string = 11;
-  string delete_string = 12;
+  string create_time = 10;
+  string update_time = 11;
+  string delete_time = 12;
   int64 del_state = 13;
   int64 version = 14;
 }
@@ -129,7 +130,3 @@ service usercenter {
   rpc petEdit(PetReq) returns (StatusInfo);
 }
 
-service usercenter2 {
-  rpc logintwo(LoginReq) returns(LoginResp);
-  rpc registertwo(RegisterReq) returns(RegisterResp);
-}
