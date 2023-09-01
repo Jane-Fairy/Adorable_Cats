@@ -92,7 +92,7 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 			{
 				Method:  http.MethodPost,
 				Path:    "/thirdPayment/thirdPaymentWxPay",
-				Handler: payment.ThirdPaymentwxPayHandler(serverCtx),
+				Handler: payment.ThirdPaymentWxPayHandler(serverCtx),
 			},
 		},
 		rest.WithPrefix("/cat-center/v1"),

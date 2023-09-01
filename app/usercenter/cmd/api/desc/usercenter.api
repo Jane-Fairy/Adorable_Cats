@@ -95,6 +95,6 @@ service usercenter {
 
 service usercenter {
 	@doc "third payment：wechat pay"
-	@handler thirdPaymentwxPay
+	@handler thirdPaymentWxPay
 	post /thirdPayment/thirdPaymentWxPay (ThirdPaymentWxPayReq) returns (ThirdPaymentWxPayResp)
 }
