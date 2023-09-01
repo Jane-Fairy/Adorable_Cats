@@ -19,10 +19,10 @@ type Config struct {
 }
 
 type GormConfig struct {
-	User     string
-	Password string
-	Host     string
-	Port     string
-	Name     string
-	Charset  string
+	User     string `json:"user"`
+	Password string `json:"password"`
+	Host     string `json:"host"`
+	Port     string `json:"port"`
+	Name     string `json:"name"`
+	Charset  string `json:"charset"`
 }

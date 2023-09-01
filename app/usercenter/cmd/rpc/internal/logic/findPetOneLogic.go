@@ -4,6 +4,7 @@ import (
 	"catroom/app/usercenter/model"
 	"catroom/common/xerr"
 	"context"
+
 	"github.com/jinzhu/copier"
 	"github.com/pkg/errors"
 
@@ -37,9 +38,9 @@ func (l *FindPetOneLogic) FindPetOne(in *pb.PetReq) (*pb.PetResp, error) {
 	petResp := new(pb.PetResp)
 	_ = copier.Copy(&petResp, petInfo)
 
-	petResp.CreateString = petInfo.CreateTime.String()
-	petResp.UpdateString = petInfo.UpdateTime.String()
-	petResp.DeleteString = petInfo.DeleteTime.String()
+	petResp.CreateTime = petInfo.CreateTime.String()
+	petResp.UpdateTime = petInfo.UpdateTime.String()
+	petResp.DeleteTime = petInfo.DeleteTime.String()
 	petResp.DateOfBirth = petInfo.DateOfBirth.Time.String()
 	return petResp, nil
 }
