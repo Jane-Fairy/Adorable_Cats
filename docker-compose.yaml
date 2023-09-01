@@ -1,0 +1,14 @@
+# 使用官方的Go语言基础镜像
+FROM golang:latest
+
+# 设置工作目录
+WORKDIR /app
+
+# 将本地Go程序复制到容器中的工作目录
+COPY . .
+
+# 构建Go程序
+RUN go build -o myapp
+
+# 指定容器启动命令
+CMD ["./myapp"]

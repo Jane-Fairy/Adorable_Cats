@@ -15,4 +15,14 @@ type Config struct {
 	}
 	Cache cache.CacheConf
 	zrpc.RpcServerConf
+	Gorm GormConfig
+}
+
+type GormConfig struct {
+	User     string
+	Password string
+	Host     string
+	Port     string
+	Name     string
+	Charset  string
 }
