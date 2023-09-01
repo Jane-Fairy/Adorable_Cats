@@ -11,6 +11,7 @@ info(
 import (
 	"user/user.api"
 	"user/pet.api"
+	"user/pay.api"
 )
 
 @server(
@@ -72,5 +73,28 @@ service usercenter {
 	@doc "edit pet"
 	@handler petEdit
 	post /pet/edit (PetReq) returns (int)
+}
 
+// Payment api define.
+@server(
+	prefix: cat-center/v1
+	group: payment
+	jwt: JwtAuth
+)
+
+service usercenter {
+	@doc "third payment：wechat pay callback"
+	@handler thirdPaymentWxPayCallback
+	post /thirdPayment/thirdPaymentWxPayCallback (ThirdPaymentWxPayCallbackReq) returns (ThirdPaymentWxPayCallbackResp)
+}
+
+@server(
+	prefix: cat-center/v1
+	group: payment
+)
+
+service usercenter {
+	@doc "third payment：wechat pay"
+	@handler thirdPaymentwxPay
+	post /thirdPayment/thirdPaymentWxPay (ThirdPaymentWxPayReq) returns (ThirdPaymentWxPayResp)
 }

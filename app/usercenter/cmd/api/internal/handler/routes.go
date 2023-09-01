@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"time"
 
+	payment "catroom/app/usercenter/cmd/api/internal/handler/payment"
 	pet "catroom/app/usercenter/cmd/api/internal/handler/pet"
 	user "catroom/app/usercenter/cmd/api/internal/handler/user"
 	"catroom/app/usercenter/cmd/api/internal/svc"
@@ -70,7 +71,30 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Handler: pet.PetEditHandler(serverCtx),
 			},
 		},
-	//	rest.WithJwt(serverCtx.Config.JwtAuth.AccessSecret),
+		rest.WithJwt(serverCtx.Config.JwtAuth.AccessSecret),
+		rest.WithPrefix("/cat-center/v1"),
+	)
+
+	server.AddRoutes(
+		[]rest.Route{
+			{
+				Method:  http.MethodPost,
+				Path:    "/thirdPayment/thirdPaymentWxPayCallback",
+				Handler: payment.ThirdPaymentWxPayCallbackHandler(serverCtx),
+			},
+		},
+		rest.WithJwt(serverCtx.Config.JwtAuth.AccessSecret),
+		rest.WithPrefix("/cat-center/v1"),
+	)
+
+	server.AddRoutes(
+		[]rest.Route{
+			{
+				Method:  http.MethodPost,
+				Path:    "/thirdPayment/thirdPaymentWxPay",
+				Handler: payment.ThirdPaymentwxPayHandler(serverCtx),
+			},
+		},
 		rest.WithPrefix("/cat-center/v1"),
 	)
 }
