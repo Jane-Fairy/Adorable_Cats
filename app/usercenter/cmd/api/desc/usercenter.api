@@ -12,6 +12,7 @@ import (
 	"user/user.api"
 	"user/pet.api"
 	"user/pay.api"
+	"user/order.api"
 )
 
 @server(
@@ -97,4 +98,24 @@ service usercenter {
 	@doc "third payment：wechat pay"
 	@handler thirdPaymentWxPay
 	post /thirdPayment/thirdPaymentWxPay (ThirdPaymentWxPayReq) returns (ThirdPaymentWxPayResp)
+}
+
+@server(
+	prefix: order/v1
+	group: CatOrder
+	jwt: JwtAuth
+)
+service usercenter {
+
+	@doc "创建订单"
+	@handler createCatOrder
+	post /CatOrder/createCatOrder (CreateCatOrderReq) returns (CreateCatOrderResp)
+
+	@doc "用户订单列表"
+	@handler userCatOrderList
+	post /CatOrder/userCatOrderList (UserCatOrderListReq) returns (UserCatOrderListResp)
+
+	@doc "用户订单明细"
+	@handler userCatOrderDetail
+	post /CatOrder/userCatOrderDetail (UserCatOrderDetailReq) returns (UserCatOrderDetailResp)
 }

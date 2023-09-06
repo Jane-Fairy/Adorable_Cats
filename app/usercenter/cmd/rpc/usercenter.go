@@ -37,15 +37,18 @@ func main() {
 	logx.DisableStat()
 
 	s := zrpc.MustNewServer(c.RpcServerConf, func(grpcServer *grpc.Server) {
+
 		pb.RegisterUsercenterServer(grpcServer, server.NewUsercenterServer(ctx))
 
 		if c.Mode == service.DevMode || c.Mode == service.TestMode {
 			reflection.Register(grpcServer)
 		}
+
 	})
 
 	defer s.Stop()
 
 	fmt.Printf("Starting rpc server at %s...\n", c.ListenOn)
+
 	s.Start()
 }
