@@ -32,6 +32,14 @@ type UsercenterClient interface {
 	PetDelete(ctx context.Context, in *PetReq, opts ...grpc.CallOption) (*StatusInfo, error)
 	FindPetOne(ctx context.Context, in *PetReq, opts ...grpc.CallOption) (*PetResp, error)
 	PetEdit(ctx context.Context, in *PetReq, opts ...grpc.CallOption) (*StatusInfo, error)
+	// Order rpc doc
+	CatOrderCreate(ctx context.Context, in *CreateCatOrderReq, opts ...grpc.CallOption) (*CreateCatOrderResp, error)
+	// cat order detail information
+	CatOrderDetail(ctx context.Context, in *CatOrderDetailReq, opts ...grpc.CallOption) (*CatOrderDetailResp, error)
+	// update cat order detail information
+	CatOrderTradeStateUpdate(ctx context.Context, in *UpdateCatOrderTradeStateReq, opts ...grpc.CallOption) (*UpdateCatOrderTradeStateResp, error)
+	// oder detail list info
+	CatUserOrderList(ctx context.Context, in *UserCatOrderListReq, opts ...grpc.CallOption) (*UserCatOrderListResp, error)
 }
 
 type usercenterClient struct {
@@ -132,6 +140,42 @@ func (c *usercenterClient) PetEdit(ctx context.Context, in *PetReq, opts ...grpc
 	return out, nil
 }
 
+func (c *usercenterClient) CatOrderCreate(ctx context.Context, in *CreateCatOrderReq, opts ...grpc.CallOption) (*CreateCatOrderResp, error) {
+	out := new(CreateCatOrderResp)
+	err := c.cc.Invoke(ctx, "/pb.usercenter/catOrderCreate", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *usercenterClient) CatOrderDetail(ctx context.Context, in *CatOrderDetailReq, opts ...grpc.CallOption) (*CatOrderDetailResp, error) {
+	out := new(CatOrderDetailResp)
+	err := c.cc.Invoke(ctx, "/pb.usercenter/catOrderDetail", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *usercenterClient) CatOrderTradeStateUpdate(ctx context.Context, in *UpdateCatOrderTradeStateReq, opts ...grpc.CallOption) (*UpdateCatOrderTradeStateResp, error) {
+	out := new(UpdateCatOrderTradeStateResp)
+	err := c.cc.Invoke(ctx, "/pb.usercenter/catOrderTradeStateUpdate", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *usercenterClient) CatUserOrderList(ctx context.Context, in *UserCatOrderListReq, opts ...grpc.CallOption) (*UserCatOrderListResp, error) {
+	out := new(UserCatOrderListResp)
+	err := c.cc.Invoke(ctx, "/pb.usercenter/catUserOrderList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UsercenterServer is the server API for Usercenter service.
 // All implementations must embed UnimplementedUsercenterServer
 // for forward compatibility
@@ -146,6 +190,14 @@ type UsercenterServer interface {
 	PetDelete(context.Context, *PetReq) (*StatusInfo, error)
 	FindPetOne(context.Context, *PetReq) (*PetResp, error)
 	PetEdit(context.Context, *PetReq) (*StatusInfo, error)
+	// Order rpc doc
+	CatOrderCreate(context.Context, *CreateCatOrderReq) (*CreateCatOrderResp, error)
+	// cat order detail information
+	CatOrderDetail(context.Context, *CatOrderDetailReq) (*CatOrderDetailResp, error)
+	// update cat order detail information
+	CatOrderTradeStateUpdate(context.Context, *UpdateCatOrderTradeStateReq) (*UpdateCatOrderTradeStateResp, error)
+	// oder detail list info
+	CatUserOrderList(context.Context, *UserCatOrderListReq) (*UserCatOrderListResp, error)
 	mustEmbedUnimplementedUsercenterServer()
 }
 
@@ -182,6 +234,18 @@ func (UnimplementedUsercenterServer) FindPetOne(context.Context, *PetReq) (*PetR
 }
 func (UnimplementedUsercenterServer) PetEdit(context.Context, *PetReq) (*StatusInfo, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PetEdit not implemented")
+}
+func (UnimplementedUsercenterServer) CatOrderCreate(context.Context, *CreateCatOrderReq) (*CreateCatOrderResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CatOrderCreate not implemented")
+}
+func (UnimplementedUsercenterServer) CatOrderDetail(context.Context, *CatOrderDetailReq) (*CatOrderDetailResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CatOrderDetail not implemented")
+}
+func (UnimplementedUsercenterServer) CatOrderTradeStateUpdate(context.Context, *UpdateCatOrderTradeStateReq) (*UpdateCatOrderTradeStateResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CatOrderTradeStateUpdate not implemented")
+}
+func (UnimplementedUsercenterServer) CatUserOrderList(context.Context, *UserCatOrderListReq) (*UserCatOrderListResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CatUserOrderList not implemented")
 }
 func (UnimplementedUsercenterServer) mustEmbedUnimplementedUsercenterServer() {}
 
@@ -376,6 +440,78 @@ func _Usercenter_PetEdit_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Usercenter_CatOrderCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCatOrderReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UsercenterServer).CatOrderCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.usercenter/catOrderCreate",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UsercenterServer).CatOrderCreate(ctx, req.(*CreateCatOrderReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Usercenter_CatOrderDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CatOrderDetailReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UsercenterServer).CatOrderDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.usercenter/catOrderDetail",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UsercenterServer).CatOrderDetail(ctx, req.(*CatOrderDetailReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Usercenter_CatOrderTradeStateUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCatOrderTradeStateReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UsercenterServer).CatOrderTradeStateUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.usercenter/catOrderTradeStateUpdate",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UsercenterServer).CatOrderTradeStateUpdate(ctx, req.(*UpdateCatOrderTradeStateReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Usercenter_CatUserOrderList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserCatOrderListReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UsercenterServer).CatUserOrderList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.usercenter/catUserOrderList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UsercenterServer).CatUserOrderList(ctx, req.(*UserCatOrderListReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Usercenter_ServiceDesc is the grpc.ServiceDesc for Usercenter service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -422,6 +558,22 @@ var Usercenter_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "petEdit",
 			Handler:    _Usercenter_PetEdit_Handler,
+		},
+		{
+			MethodName: "catOrderCreate",
+			Handler:    _Usercenter_CatOrderCreate_Handler,
+		},
+		{
+			MethodName: "catOrderDetail",
+			Handler:    _Usercenter_CatOrderDetail_Handler,
+		},
+		{
+			MethodName: "catOrderTradeStateUpdate",
+			Handler:    _Usercenter_CatOrderTradeStateUpdate_Handler,
+		},
+		{
+			MethodName: "catUserOrderList",
+			Handler:    _Usercenter_CatUserOrderList_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

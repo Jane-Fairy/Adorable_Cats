@@ -13,23 +13,32 @@ import (
 )
 
 type (
-	GenerateTokenReq         = pb.GenerateTokenReq
-	GenerateTokenResp        = pb.GenerateTokenResp
-	GetUserAuthByAuthKeyReq  = pb.GetUserAuthByAuthKeyReq
-	GetUserAuthByAuthKeyResp = pb.GetUserAuthByAuthKeyResp
-	GetUserAuthByUserIdReq   = pb.GetUserAuthByUserIdReq
-	GetUserAuthyUserIdResp   = pb.GetUserAuthyUserIdResp
-	GetUserInfoReq           = pb.GetUserInfoReq
-	GetUserInfoResp          = pb.GetUserInfoResp
-	LoginReq                 = pb.LoginReq
-	LoginResp                = pb.LoginResp
-	PetReq                   = pb.PetReq
-	PetResp                  = pb.PetResp
-	RegisterReq              = pb.RegisterReq
-	RegisterResp             = pb.RegisterResp
-	StatusInfo               = pb.StatusInfo
-	User                     = pb.User
-	UserAuth                 = pb.UserAuth
+	CatOrder                     = pb.CatOrder
+	CatOrderDetailReq            = pb.CatOrderDetailReq
+	CatOrderDetailResp           = pb.CatOrderDetailResp
+	CreateCatOrderReq            = pb.CreateCatOrderReq
+	CreateCatOrderResp           = pb.CreateCatOrderResp
+	GenerateTokenReq             = pb.GenerateTokenReq
+	GenerateTokenResp            = pb.GenerateTokenResp
+	GetUserAuthByAuthKeyReq      = pb.GetUserAuthByAuthKeyReq
+	GetUserAuthByAuthKeyResp     = pb.GetUserAuthByAuthKeyResp
+	GetUserAuthByUserIdReq       = pb.GetUserAuthByUserIdReq
+	GetUserAuthyUserIdResp       = pb.GetUserAuthyUserIdResp
+	GetUserInfoReq               = pb.GetUserInfoReq
+	GetUserInfoResp              = pb.GetUserInfoResp
+	LoginReq                     = pb.LoginReq
+	LoginResp                    = pb.LoginResp
+	PetReq                       = pb.PetReq
+	PetResp                      = pb.PetResp
+	RegisterReq                  = pb.RegisterReq
+	RegisterResp                 = pb.RegisterResp
+	StatusInfo                   = pb.StatusInfo
+	UpdateCatOrderTradeStateReq  = pb.UpdateCatOrderTradeStateReq
+	UpdateCatOrderTradeStateResp = pb.UpdateCatOrderTradeStateResp
+	User                         = pb.User
+	UserAuth                     = pb.UserAuth
+	UserCatOrderListReq          = pb.UserCatOrderListReq
+	UserCatOrderListResp         = pb.UserCatOrderListResp
 
 	Usercenter interface {
 		Login(ctx context.Context, in *LoginReq, opts ...grpc.CallOption) (*LoginResp, error)
@@ -42,6 +51,14 @@ type (
 		PetDelete(ctx context.Context, in *PetReq, opts ...grpc.CallOption) (*StatusInfo, error)
 		FindPetOne(ctx context.Context, in *PetReq, opts ...grpc.CallOption) (*PetResp, error)
 		PetEdit(ctx context.Context, in *PetReq, opts ...grpc.CallOption) (*StatusInfo, error)
+		// Order rpc doc
+		CatOrderCreate(ctx context.Context, in *CreateCatOrderReq, opts ...grpc.CallOption) (*CreateCatOrderResp, error)
+		// cat order detail information
+		CatOrderDetail(ctx context.Context, in *CatOrderDetailReq, opts ...grpc.CallOption) (*CatOrderDetailResp, error)
+		// update cat order detail information
+		CatOrderTradeStateUpdate(ctx context.Context, in *UpdateCatOrderTradeStateReq, opts ...grpc.CallOption) (*UpdateCatOrderTradeStateResp, error)
+		// oder detail list info
+		CatUserOrderList(ctx context.Context, in *UserCatOrderListReq, opts ...grpc.CallOption) (*UserCatOrderListResp, error)
 	}
 
 	defaultUsercenter struct {
@@ -103,4 +120,28 @@ func (m *defaultUsercenter) FindPetOne(ctx context.Context, in *PetReq, opts ...
 func (m *defaultUsercenter) PetEdit(ctx context.Context, in *PetReq, opts ...grpc.CallOption) (*StatusInfo, error) {
 	client := pb.NewUsercenterClient(m.cli.Conn())
 	return client.PetEdit(ctx, in, opts...)
+}
+
+// Order rpc doc
+func (m *defaultUsercenter) CatOrderCreate(ctx context.Context, in *CreateCatOrderReq, opts ...grpc.CallOption) (*CreateCatOrderResp, error) {
+	client := pb.NewUsercenterClient(m.cli.Conn())
+	return client.CatOrderCreate(ctx, in, opts...)
+}
+
+// cat order detail information
+func (m *defaultUsercenter) CatOrderDetail(ctx context.Context, in *CatOrderDetailReq, opts ...grpc.CallOption) (*CatOrderDetailResp, error) {
+	client := pb.NewUsercenterClient(m.cli.Conn())
+	return client.CatOrderDetail(ctx, in, opts...)
+}
+
+// update cat order detail information
+func (m *defaultUsercenter) CatOrderTradeStateUpdate(ctx context.Context, in *UpdateCatOrderTradeStateReq, opts ...grpc.CallOption) (*UpdateCatOrderTradeStateResp, error) {
+	client := pb.NewUsercenterClient(m.cli.Conn())
+	return client.CatOrderTradeStateUpdate(ctx, in, opts...)
+}
+
+// oder detail list info
+func (m *defaultUsercenter) CatUserOrderList(ctx context.Context, in *UserCatOrderListReq, opts ...grpc.CallOption) (*UserCatOrderListResp, error) {
+	client := pb.NewUsercenterClient(m.cli.Conn())
+	return client.CatUserOrderList(ctx, in, opts...)
 }

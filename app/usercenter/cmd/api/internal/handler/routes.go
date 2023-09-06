@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	CatOrder "catroom/app/usercenter/cmd/api/internal/handler/CatOrder"
+	CatOrder "catroom/app/usercenter/cmd/api/internal/handler/catorder"
 	payment "catroom/app/usercenter/cmd/api/internal/handler/payment"
 	pet "catroom/app/usercenter/cmd/api/internal/handler/pet"
 	user "catroom/app/usercenter/cmd/api/internal/handler/user"
@@ -103,17 +103,17 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 		[]rest.Route{
 			{
 				Method:  http.MethodPost,
-				Path:    "/CatOrder/createCatOrder",
+				Path:    "/catorder/createCatOrder",
 				Handler: CatOrder.CreateCatOrderHandler(serverCtx),
 			},
 			{
 				Method:  http.MethodPost,
-				Path:    "/CatOrder/userCatOrderList",
+				Path:    "/catorder/userCatOrderList",
 				Handler: CatOrder.UserCatOrderListHandler(serverCtx),
 			},
 			{
 				Method:  http.MethodPost,
-				Path:    "/CatOrder/userCatOrderDetail",
+				Path:    "/catorder/userCatOrderDetail",
 				Handler: CatOrder.UserCatOrderDetailHandler(serverCtx),
 			},
 		},

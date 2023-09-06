@@ -102,20 +102,20 @@ service usercenter {
 
 @server(
 	prefix: order/v1
-	group: CatOrder
+	group: catorder
 	jwt: JwtAuth
 )
 service usercenter {
 
-	@doc "创建订单"
+	@doc "create order"
 	@handler createCatOrder
 	post /CatOrder/createCatOrder (CreateCatOrderReq) returns (CreateCatOrderResp)
 
-	@doc "用户订单列表"
+	@doc "order detail list"
 	@handler userCatOrderList
 	post /CatOrder/userCatOrderList (UserCatOrderListReq) returns (UserCatOrderListResp)
 
-	@doc "用户订单明细"
+	@doc "order detail"
 	@handler userCatOrderDetail
 	post /CatOrder/userCatOrderDetail (UserCatOrderDetailReq) returns (UserCatOrderDetailResp)
 }

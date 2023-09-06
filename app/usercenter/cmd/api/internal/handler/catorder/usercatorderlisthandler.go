@@ -1,4 +1,4 @@
-package CatOrder
+package catorder
 
 import (
 	"net/http"

@@ -71,3 +71,27 @@ func (s *UsercenterServer) PetEdit(ctx context.Context, in *pb.PetReq) (*pb.Stat
 	l := logic.NewPetEditLogic(ctx, s.svcCtx)
 	return l.PetEdit(in)
 }
+
+// Order rpc doc
+func (s *UsercenterServer) CatOrderCreate(ctx context.Context, in *pb.CreateCatOrderReq) (*pb.CreateCatOrderResp, error) {
+	l := logic.NewCatOrderCreateLogic(ctx, s.svcCtx)
+	return l.CatOrderCreate(in)
+}
+
+// cat order detail information
+func (s *UsercenterServer) CatOrderDetail(ctx context.Context, in *pb.CatOrderDetailReq) (*pb.CatOrderDetailResp, error) {
+	l := logic.NewCatOrderDetailLogic(ctx, s.svcCtx)
+	return l.CatOrderDetail(in)
+}
+
+// update cat order detail information
+func (s *UsercenterServer) CatOrderTradeStateUpdate(ctx context.Context, in *pb.UpdateCatOrderTradeStateReq) (*pb.UpdateCatOrderTradeStateResp, error) {
+	l := logic.NewCatOrderTradeStateUpdateLogic(ctx, s.svcCtx)
+	return l.CatOrderTradeStateUpdate(in)
+}
+
+// oder detail list info
+func (s *UsercenterServer) CatUserOrderList(ctx context.Context, in *pb.UserCatOrderListReq) (*pb.UserCatOrderListResp, error) {
+	l := logic.NewCatUserOrderListLogic(ctx, s.svcCtx)
+	return l.CatUserOrderList(in)
+}

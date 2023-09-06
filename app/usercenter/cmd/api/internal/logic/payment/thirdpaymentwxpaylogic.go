@@ -45,7 +45,7 @@ func (l *ThirdPaymentwxPayLogic) ThirdPaymentWxPay(req *types.ThirdPaymentWxPayR
 
 	wechatPrepayResqonse, err := l.createWxPrePayOrder(req.ServiceType, req.OrderSn, totalPrice, description)
 	if err != nil {
-		return nil, errors.Wrapf(xerr.NewErrCode(xerr.ErrWxPrePayment), "create pre payment err : %v requset: %+v", err, req)
+		return nil, errors.Wrapf(xerr.NewErrCode(xerr.ErrWxPrePayment), "Create pre payment err : %v requset: %+v", err, req)
 	}
 
 	return &types.ThirdPaymentWxPayResp{

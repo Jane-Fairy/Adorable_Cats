@@ -1,4 +1,4 @@
-package CatOrder
+package catorder
 
 import (
 	"net/http"
@@ -9,16 +9,16 @@ import (
 	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
-func CreateCatOrderHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
+func UserCatOrderDetailHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.CreateCatOrderReq
+		var req types.UserCatOrderDetailReq
 		if err := httpx.Parse(r, &req); err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 			return
 		}
 
-		l := CatOrder.NewCreateCatOrderLogic(r.Context(), svcCtx)
-		resp, err := l.CreateCatOrder(&req)
+		l := CatOrder.NewUserCatOrderDetailLogic(r.Context(), svcCtx)
+		resp, err := l.UserCatOrderDetail(&req)
 		if err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 		} else {

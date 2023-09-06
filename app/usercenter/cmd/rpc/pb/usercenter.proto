@@ -114,8 +114,91 @@ message StatusInfo {
 }
 
 
+
+message CatOrder {
+  int64  id = 1;
+  string sn = 2;
+  int64  userId = 3;
+  int64  homestayId = 4;
+  string title = 5;
+  string subTitle = 6;
+  string cover = 7;
+  string info = 8;
+  int64 peopleNum = 9;
+  int64 rowType = 10;
+  string foodInfo = 11;
+  int64 foodPrice = 12;
+  int64 homestayPrice = 13;
+  int64 marketCatPrice = 14;
+  int64 homestayBusinessId = 15;
+  int64 homestayUserId = 16;
+  int64 liveStartDate = 17;
+  int64 liveEndDate = 18;
+  int64 livePeopleNum = 19;
+  int64 tradeState = 20;
+  string tradeCode = 21;
+  string remark = 22;
+  int64 orderTotalPrice = 23;
+  int64 foodTotalPrice = 24;
+  int64 homestayTotalPrice = 25;
+  int64 createTime = 26;
+  int64 needFood = 27;
+}
+
+message CreateCatOrderReq {
+  int64  homestayId = 1;
+  bool   isFood = 2;
+  int64  liveStartTime = 3;
+  int64  liveEndTime = 4;
+  int64  userId = 5;
+  int64  livePeopleNum = 6;
+  string remark = 7;
+}
+message CreateCatOrderResp {
+  string sn = 1;
+}
+
+
+message  CatOrderDetailReq{
+  string sn = 1;
+}
+message  CatOrderDetailResp{
+  CatOrder homestayOrder= 1;
+}
+
+message  UpdateCatOrderTradeStateReq{
+  string sn = 1;
+  int64  tradeState = 2;  //-1: 已取消 0:待支付 1:未使用 2:已使用  3:已过关闭
+}
+
+message  UpdateCatOrderTradeStateResp{
+  int64  id = 1;
+  int64  userId = 2;
+  string sn = 3;
+  string tradeCode = 4;
+  int64  liveStartDate = 5;
+  int64  liveEndDate = 6;
+  int64  orderTotalPrice = 7;
+  string title = 8;
+}
+
+
+message UserCatOrderListReq {
+  int64           lastId = 1;
+  int64           pageSize = 2;
+  int64           userId = 3;
+  int64           traderState = 4;
+}
+message UserCatOrderListResp {
+  repeated CatOrder list = 1;
+}
+
+
+
+
 //service
 service usercenter {
+
   rpc login(LoginReq) returns(LoginResp);
   rpc register(RegisterReq) returns(RegisterResp);
   rpc getUserInfo(GetUserInfoReq) returns(GetUserInfoResp);
@@ -128,5 +211,16 @@ service usercenter {
   rpc petDelete(PetReq) returns (StatusInfo);
   rpc findPetOne(PetReq) returns (PetResp);
   rpc petEdit(PetReq) returns (StatusInfo);
+
+
+
+  //Order rpc doc
+  rpc catOrderCreate(CreateCatOrderReq)returns(CreateCatOrderResp);
+  //cat order detail information
+  rpc catOrderDetail(CatOrderDetailReq)returns(CatOrderDetailResp);
+  //update cat order detail information
+  rpc catOrderTradeStateUpdate(UpdateCatOrderTradeStateReq)returns(UpdateCatOrderTradeStateResp);
+  //oder detail list info
+  rpc catUserOrderList(UserCatOrderListReq)returns(UserCatOrderListResp);
 }
 
