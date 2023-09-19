@@ -39,6 +39,7 @@ func (l *ThirdPaymentwxPayLogic) ThirdPaymentWxPay(req *types.ThirdPaymentWxPayR
 		}
 		totalPrice = price
 		description = catDescription
+
 	default:
 		return nil, errors.Wrapf(xerr.NewErrMsg("Payment for this business type is not supported"), "Payment for this business type is not supported req: %+v", req)
 	}

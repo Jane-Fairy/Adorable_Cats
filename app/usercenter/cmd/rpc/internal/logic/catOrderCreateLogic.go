@@ -26,6 +26,6 @@ func NewCatOrderCreateLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Ca
 // Order rpc doc
 func (l *CatOrderCreateLogic) CatOrderCreate(in *pb.CreateCatOrderReq) (*pb.CreateCatOrderResp, error) {
 	// todo: add your logic here and delete this line
-
+	
 	return &pb.CreateCatOrderResp{}, nil
 }

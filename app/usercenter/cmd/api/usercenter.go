@@ -6,10 +6,11 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/zeromicro/go-zero/core/logx"
 	"log"
 	"os"
 	"path/filepath"
+
+	"github.com/zeromicro/go-zero/core/logx"
 
 	"catroom/app/usercenter/cmd/api/internal/config"
 	"catroom/app/usercenter/cmd/api/internal/handler"
@@ -19,7 +20,7 @@ import (
 	"github.com/zeromicro/go-zero/rest"
 )
 
-var configFile = flag.String("f", "app/usercenter/cmd/api/etc/usercenter.yaml", "the config file")
+var configFile = flag.String("f", "../app/usercenter/cmd/api/etc/usercenter.yaml", "the config file")
 
 func main() {
 	flag.Parse()

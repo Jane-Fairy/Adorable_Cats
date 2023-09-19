@@ -24,7 +24,9 @@ func NewCreateCatOrderLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Cr
 }
 
 func (l *CreateCatOrderLogic) CreateCatOrder(req *types.CreateCatOrderReq) (resp *types.CreateCatOrderResp, err error) {
-	// todo: add your logic here and delete this line
+	//todo: add your logic here and delete this line
+
+	//todo: need to retrieve goods information , function is not set
 
 	return
 }
