@@ -113,8 +113,6 @@ message StatusInfo {
   bool isSuccess = 1;
 }
 
-
-
 message CatOrder {
   int64  id = 1;
   string sn = 2;
@@ -222,5 +220,7 @@ service usercenter {
   rpc catOrderTradeStateUpdate(UpdateCatOrderTradeStateReq)returns(UpdateCatOrderTradeStateResp);
   //oder detail list info
   rpc catUserOrderList(UserCatOrderListReq)returns(UserCatOrderListResp);
+
+
 }
 
