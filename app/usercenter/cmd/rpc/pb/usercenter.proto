@@ -75,6 +75,7 @@ message GetUserAuthyUserIdResp {
 message GenerateTokenReq {
   int64 userId = 1;
 }
+
 message GenerateTokenResp {
   string accessToken = 1;
   int64  accessExpire = 2;
@@ -109,6 +110,7 @@ message PetResp {
   int64 del_state = 13;
   int64 version = 14;
 }
+
 message StatusInfo {
   bool isSuccess = 1;
 }
@@ -152,6 +154,7 @@ message CreateCatOrderReq {
   int64  livePeopleNum = 6;
   string remark = 7;
 }
+
 message CreateCatOrderResp {
   string sn = 1;
 }
@@ -187,12 +190,112 @@ message UserCatOrderListReq {
   int64           userId = 3;
   int64           traderState = 4;
 }
+
 message UserCatOrderListResp {
   repeated CatOrder list = 1;
 }
 
 
+message GoodsInfoReq{
+  string id = 1;
+}
 
+message GoodsInfoResp{
+
+}
+
+message Goods {
+  string goods_id = 1;               // 商品id
+  string goods_name = 2;             // 商品名称
+  string selling_point = 3;          // 商品卖点
+  uint32 category_id = 4;            // 商品分类id
+  uint32 deduct_stock_type = 5;      // 库存计算方式(10下单减库存 20付款减库存)
+  string content = 6;                // 商品详情
+  uint32 sales_initial = 7;          // 初始销量
+  uint32 sales_actual = 8;           // 实际销量
+  uint32 goods_sort = 9;             // 商品排序
+  uint32 goods_status = 10;          // 商品状态(10上架 20下架)
+  uint32 is_delete = 11;             // 是否删除
+  google.protobuf.Timestamp create_time = 12;  // 创建时间
+  google.protobuf.Timestamp update_time = 13;  // 更新时间
+  google.protobuf.Timestamp delete_time = 14;  // 删除时间
+  uint32 del_state = 15;             // 删除状态
+}
+
+message GoodsCategory {
+  string category_id = 1;   // 商品分类id
+  string name = 2;          // 分类名称
+  uint32 parent_id = 3;     // 上级分类id
+  uint32 image_id = 4;      // 分类图片id
+  uint32 sort = 5;          // 排序方式
+  google.protobuf.Timestamp create_time = 6;  // 创建时间
+  google.protobuf.Timestamp update_time = 7;  // 更新时间
+  google.protobuf.Timestamp delete_time = 8;  // 删除时间
+  uint32 del_state = 9;     // 删除状态
+}
+
+message GoodsUploadFile {
+  string file_id = 1;        // 文件id
+  string storage = 2;        // 存储方式
+  string file_url = 3;       // 存储域名
+  string file_name = 4;      // 文件路径
+  uint32 file_size = 5;      // 文件大小 (字节)
+  string file_type = 6;      // 文件类型
+  string extension = 7;      // 文件扩展名
+  uint32 is_user = 8;        // 是否为c端用户上传
+  uint32 is_recycle = 9;     // 是否已回收
+  uint32 is_delete = 10;     // 软删除
+  google.protobuf.Timestamp create_time = 11;  // 创建时间
+  google.protobuf.Timestamp update_time = 12;  // 更新时间
+  google.protobuf.Timestamp delete_time = 13;  // 删除时间
+  uint32 del_state = 14;     // 删除状态
+}
+
+message GoodsImage {
+  string id = 1;                     // 主键id
+  uint32 goods_id = 2;               // 商品id
+  uint32 image_id = 3;               // 图片id (关联图片记录表)
+  google.protobuf.Timestamp create_time = 4;  // 创建时间
+  google.protobuf.Timestamp update_time = 5;  // 更新时间
+  google.protobuf.Timestamp delete_time = 6;  // 删除时间
+  uint32 del_state = 7;              // 删除状态
+}
+
+message GoodsSpec {
+  string spec_id = 1;                // 规格组id
+  string spec_name = 2;              // 规格组名称
+  google.protobuf.Timestamp create_time = 3;  // 创建时间
+  google.protobuf.Timestamp update_time = 4;  // 更新时间
+  google.protobuf.Timestamp delete_time = 5;  // 删除时间
+  uint32 del_state = 6;              // 删除状态
+}
+
+message GoodsSku {
+  string goods_sku_id = 1;           // 商品规格id
+  uint32 goods_id = 2;                // 商品id
+  string spec_sku_id = 3;             // 商品sku记录索引 (由规格id组成)
+  uint32 image_id = 4;                // 图片id
+  string goods_no = 5;                // 商品编码
+  float goods_price = 6;              // 商品价格
+  float line_price = 7;               // 商品划线价
+  uint32 stock_num = 8;               // 当前库存数量
+  uint32 goods_sales = 9;             // 商品销量
+  double goods_weight = 10;           // 商品重量 (Kg)
+  google.protobuf.Timestamp create_time = 11;  // 创建时间
+  google.protobuf.Timestamp update_time = 12;  // 更新时间
+  google.protobuf.Timestamp delete_time = 13;  // 删除时间
+  uint32 del_state = 14;              // 删除状态
+}
+
+message SpecValue {
+  string spec_value_id = 1;           // 规格值id
+  string spec_value = 2;              // 规格值
+  uint32 spec_id = 3;                 // 规格组id
+  google.protobuf.Timestamp create_time = 4;  // 创建时间
+  google.protobuf.Timestamp update_time = 5;  // 更新时间
+  google.protobuf.Timestamp delete_time = 6;  // 删除时间
+  uint32 del_state = 7;              // 删除状态
+}
 
 //service
 service usercenter {
@@ -220,6 +323,7 @@ service usercenter {
   rpc catOrderTradeStateUpdate(UpdateCatOrderTradeStateReq)returns(UpdateCatOrderTradeStateResp);
   //oder detail list info
   rpc catUserOrderList(UserCatOrderListReq)returns(UserCatOrderListResp);
+
 
 
 }
