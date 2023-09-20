@@ -195,15 +195,6 @@ message UserCatOrderListResp {
   repeated CatOrder list = 1;
 }
 
-
-message GoodsInfoReq{
-  string id = 1;
-}
-
-message GoodsInfoResp{
-
-}
-
 message Goods {
   string goods_id = 1;               // 商品id
   string goods_name = 2;             // 商品名称
@@ -287,7 +278,7 @@ message GoodsSku {
   uint32 del_state = 14;              // 删除状态
 }
 
-message SpecValue {
+message GoodsSpecValue {
   string spec_value_id = 1;           // 规格值id
   string spec_value = 2;              // 规格值
   uint32 spec_id = 3;                 // 规格组id
@@ -296,6 +287,22 @@ message SpecValue {
   google.protobuf.Timestamp delete_time = 6;  // 删除时间
   uint32 del_state = 7;              // 删除状态
 }
+
+
+message GoodsInfoResp{
+  Goods goods = 1 ;
+  repeated GoodsSku goodsSkuList = 2;
+  GoodsCategory goodsCategory = 3;
+  GoodsImage goodsImage = 4;
+  GoodsSpec goodsSpec = 5;
+  GoodsSpecValue goodsSpecValue = 6;
+}
+
+message GoodsInfoListResp{
+  repeated GoodsInfoResp goodsList  = 1;
+}
+
+message Empty {}
 
 //service
 service usercenter {
@@ -324,7 +331,7 @@ service usercenter {
   //oder detail list info
   rpc catUserOrderList(UserCatOrderListReq)returns(UserCatOrderListResp);
 
-
+  rpc catGoodsGetAllGoodsInfo(Empty)returns();
 
 }
 
