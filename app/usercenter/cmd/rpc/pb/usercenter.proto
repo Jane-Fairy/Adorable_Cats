@@ -331,7 +331,6 @@ service usercenter {
   //oder detail list info
   rpc catUserOrderList(UserCatOrderListReq)returns(UserCatOrderListResp);
 
-  rpc catGoodsGetAllGoodsInfo(Empty)returns();
 
 }
 

@@ -45,6 +45,7 @@ func main() {
 		}
 
 	})
+	//zrpc.MustNewClient(c.DataEngineRpcConf, zrpc.WithDialOption(grpc.WithDefaultCallOptions(grpc.MaxCallRecvMsgSize(4<<30))), zrpc.WithDialOption(grpc.WithDefaultCallOptions(grpc.MaxCallSendMsgSize(4<<30))))
 
 	defer s.Stop()
 
